@@ -1,0 +1,6 @@
+1️⃣ Login Page Test Cases
+TC ID	Test Scenario	Steps	Expected Result
+TC001	Valid Login	1. Open the app 2. Enter valid credentials 3. Click Login	User successfully logs in
+TC002	Invalid Login	1. Enter incorrect credentials 2. Click Login	Error message should appear
+TC003	Empty Fields	1. Leave fields empty 2. Click Login	Validation message appears
+TC004	Session Timeout	1. Log in and stay idle 2. Wait for timeout	User should be logged out

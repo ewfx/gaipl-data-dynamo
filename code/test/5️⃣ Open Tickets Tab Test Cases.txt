@@ -1,0 +1,5 @@
+5️⃣ Open Tickets Tab Test Cases
+TC ID	Test Scenario	Steps	Expected Result
+TC401	Navigate to Open Tickets	1. Click on "Open Tickets"	List of open tickets should be displayed
+TC402	Ticket Details	1. Click on a ticket	Ticket details should appear
+TC403	Update Ticket	1. Edit ticket status 2. Save	Ticket updates should be saved

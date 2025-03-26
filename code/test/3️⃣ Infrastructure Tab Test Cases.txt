@@ -1,0 +1,5 @@
+3️⃣ Infrastructure Tab Test Cases
+TC ID	Test Scenario	Steps	Expected Result
+TC201	Navigate to Infrastructure	1. Log in 2. Click on "Infrastructure"	Infrastructure page should load
+TC202	Resource Details	1. Click on a resource 2. View details	Resource details should display
+TC203	Filter/Search	1. Use filters/search for resources	Correct results should appear

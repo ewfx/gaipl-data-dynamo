@@ -1,0 +1,5 @@
+4️⃣ Monitoring Tab Test Cases
+TC ID	Test Scenario	Steps	Expected Result
+TC301	Navigate to Monitoring	1. Click on "Monitoring"	Page should load with charts/metrics
+TC302	Real-time Updates	1. Check live data updates	Data should refresh at set intervals
+TC303	Alerts Visibility	1. View monitoring alerts	Active alerts should be shown

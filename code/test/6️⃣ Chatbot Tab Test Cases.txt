@@ -1,0 +1,5 @@
+6️⃣ Chatbot Tab Test Cases
+TC ID	Test Scenario	Steps	Expected Result
+TC501	Open Chatbot	1. Click on "Chatbot"	Chatbot should open
+TC502	Send Message	1. Type a query 2. Click Send	Chatbot should respond
+TC503	Invalid Query	1. Send unsupported query	Error message or fallback response

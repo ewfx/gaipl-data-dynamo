@@ -1,0 +1,5 @@
+2️⃣ Dashboard Tab Test Cases
+TC ID	Test Scenario	Steps	Expected Result
+TC101	Navigate to Dashboard	1. Log in 2. Click on "Dashboard"	Dashboard page should load correctly
+TC102	Data Loading	1. Open Dashboard 2. Check widgets/data	Data should be displayed properly
+TC103	Refresh Page	1. Click refresh 2. Observe data updates	Latest data should be shown
