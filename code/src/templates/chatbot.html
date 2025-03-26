@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <h2>Data Dynamo AI Agent: A Digital Employee</h2>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="chat-container" style="height: 300px; overflow-y: auto; background-color: #f8f9fa; padding: 20px; border-radius: 5px;">
+                        <div id="chat-messages" class="mb-3">
+                            <div class="text-center text-muted mb-4">
+                                <i>Hello! I'm your Data Dynamo AI Agent. How can I help you today?</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input mt-3">
+                        <form id="chat-form" class="d-flex">
+                            <input type="text" class="form-control me-2" id="user-input" placeholder="Type your question here...">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function addMessageToChat(message, className) {
+    const messagesDiv = document.getElementById('chat-messages');
+    const messageElement = document.createElement('div');
+    messageElement.className = 'mb-2 ' + className;
+    messageElement.style.padding = '8px';
+    messageElement.textContent = message;
+    messagesDiv.appendChild(messageElement);
+    
+    // Scroll to the bottom of chat container
+    const chatContainer = document.querySelector('.chat-container');
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+document.getElementById('chat-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const input = document.getElementById('user-input');
+    const message = input.value.trim();
+    if (!message) return;
+
+    // Add user message to chat
+    addMessageToChat('You: ' + message, 'text-end');
+
+    // Send message to server
+    fetch('/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Add bot response to chat
+        addMessageToChat('AI Agent: ' + data.response, 'text-start');
+        // Additional scroll to ensure long responses are visible
+        const chatContainer = document.querySelector('.chat-container');
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        addMessageToChat('Error: Failed to get response', 'text-start text-danger');
+    });
+
+    input.value = '';
+});
+</script>
+{% endblock %}

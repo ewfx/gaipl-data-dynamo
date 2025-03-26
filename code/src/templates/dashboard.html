@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <h2>Platform Overview</h2>
+    
+    <div class="row mt-4">
+        <div class="col-xl-3 col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Infrastructure Status</h5>
+                    <h2 class="card-text">98%</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Active Services</h5>
+                    <h2 class="card-text">24</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Deployments Today</h5>
+                    <h2 class="card-text">12</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xl-3 col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Alerts</h5>
+                    <h2 class="card-text">2</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New AI Insights Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="mb-4"><i>Know what your Data Dynamo AI did today</i></h4>
+                    <a href="{{ url_for('ai_insights') }}" class="btn btn-primary">View AI Insights</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
