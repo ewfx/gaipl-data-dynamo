@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <h2>Open Tickets</h2>
+    <!-- Stats cards -->
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body text-center">
+                    <h3>Active Tickets</h3>
+                    <h1 class="display-4">{{ open_count }}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-warning text-white">
+                <div class="card-body text-center">
+                    <h3>High Priority</h3>
+                    <h1 class="display-4">5</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-success text-white">
+                <div class="card-body text-center">
+                    <h3>Resolved Today</h3>
+                    <h1 class="display-4">8</h1>
+                </div>
+            </div>
+        </div>
+
+    <!-- Inspire Me Button -->
+    <div class="row mt-4 mb-4">
+        <div class="col-12">
+            <button id="inspireBtn" class="btn btn-success">
+                <i class='bx bx-bulb'></i> Inspire Me
+            </button>
+            <p class="mt-2"><i>Click this button to get inspired by Data Dynamo AI Agents</i></p>
+        </div>
+    </div>
+
+    <!-- Tickets Table -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ticket Details</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    {% if tickets %}
+                                        {% for column in tickets[0].keys() %}
+                                            <th>{{ column }}</th>
+                                        {% endfor %}
+                                    {% endif %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ticket in tickets %}
+                                    <tr>
+                                        {% for value in ticket.values() %}
+                                            <td>{{ value }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add this script at the end of the content block -->
+<!-- Add custom popup div after the main content -->
+    <div id="customPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+        background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 1000;">
+        <p style="margin: 0; font-size: 16px;">AI Agent has identified 65 tickets and resolved few tickets and updated the RCA</p>
+        <button onclick="closePopup()" class="btn btn-primary mt-3" style="float: right;">Close</button>
+    </div>
+
+    <!-- Update the script -->
+    <script>
+    function showPopup() {
+        document.getElementById('customPopup').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('customPopup').style.display = 'none';
+    }
+
+    document.getElementById('inspireBtn').addEventListener('click', function() {
+        fetch('/inspire', {
+            method: 'POST',
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                showPopup();
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while running the script');
+        });
+    });
+    </script>
+{% endblock %}

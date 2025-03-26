@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <h2>Deployments</h2>
+    <div class="row mt-4">
+        <!-- Deployment Stats -->
+        <div class="col-md-3 mb-4">
+            <div class="card bg-success text-white">
+                <div class="card-body text-center">
+                    <h4>Successful</h4>
+                    <h2 class="display-4">28</h2>
+                    <p>Last 24 hours</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card bg-warning text-white">
+                <div class="card-body text-center">
+                    <h4>In Progress</h4>
+                    <h2 class="display-4">3</h2>
+                    <p>Current deployments</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card bg-danger text-white">
+                <div class="card-body text-center">
+                    <h4>Failed</h4>
+                    <h2 class="display-4">1</h2>
+                    <p>Last 24 hours</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card bg-info text-white">
+                <div class="card-body text-center">
+                    <h4>Scheduled</h4>
+                    <h2 class="display-4">5</h2>
+                    <p>Next 24 hours</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Deployments Table -->
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Deployments</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Version</th>
+                                    <th>Status</th>
+                                    <th>Time</th>
+                                    <th>Deployed By</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Authentication Service</td>
+                                    <td>v2.3.0</td>
+                                    <td><span class="badge bg-success">Successful</span></td>
+                                    <td>10:30 AM</td>
+                                    <td>System</td>
+                                </tr>
+                                <tr>
+                                    <td>Data Processing API</td>
+                                    <td>v1.5.2</td>
+                                    <td><span class="badge bg-warning">In Progress</span></td>
+                                    <td>10:15 AM</td>
+                                    <td>Admin</td>
+                                </tr>
+                                <tr>
+                                    <td>Monitoring Service</td>
+                                    <td>v3.0.1</td>
+                                    <td><span class="badge bg-danger">Failed</span></td>
+                                    <td>09:45 AM</td>
+                                    <td>System</td>
+                                </tr>
+                                <tr>
+                                    <td>User Interface</td>
+                                    <td>v4.2.0</td>
+                                    <td><span class="badge bg-success">Successful</span></td>
+                                    <td>09:30 AM</td>
+                                    <td>Admin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
