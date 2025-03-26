@@ -14,10 +14,11 @@
 ---
 
 ## 🎯 Introduction
-A brief overview of your project and its purpose. Mention which problem statement are your attempting to solve. Keep it concise and engaging.
+Integrated Platform Environment is the one stop solution for a Platform Engineer.
+AI agents are deployed to IPE to perform a 4 quadrant resolution covering elimination, efficiency, correlation and automation.
+Open AI powered Chatbot to provide all assistance and query resolution required for the engineer and combining other AI capabilities makes the Integration an effective solution for the platform.
 
-## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
+## 🎥 Demo  
 📹 [Video Demo](#) (if applicable)  
 🖼️ Screenshots:
 
